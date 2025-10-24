@@ -88,17 +88,14 @@ body {
   font-weight: 500;
 }
 
-/* Form */
+/* Form - Responsive con CSS Grid */
 .form-container {
-  width: 1019px;
+  width: 100%;
+  max-width: 1019px;
   height: fit-content;
-  padding: 50px 60px 40px;
-  display: flex;
-  flex-direction: column;
-  /* display: grid; */
-  /* grid-template-columns: 1fr 1fr; */
-  /* row-gap: 50px; */
-  gap: 40px;
+  padding: clamp(30px, 5vw, 50px) clamp(30px, 6vw, 60px) clamp(30px, 4vw, 40px);
+  display: grid;
+  gap: clamp(30px, 4vw, 40px);
   border-radius: 9px;
   background: rgba(255, 255, 255, 1);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -107,7 +104,7 @@ body {
 
 .form-container h2 {
   font-weight: 600;
-  font-size: 20px;
+  font-size: clamp(18px, 2.5vw, 20px);
   line-height: 100%;
   letter-spacing: 0;
   color: var(--title-black-color);
@@ -118,61 +115,64 @@ body {
   display: none;
 }
 .form-section.active {
-  display: block;
+  display: grid;
+  gap: inherit;
 }
 
-/* Distribución label + input */
+/* Form Row - Grid Responsive (clave para responsive sin media queries) */
 .form-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 24px;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  align-items: start;
+  gap: clamp(8px, 3vw, 30px);
+  margin-bottom: clamp(16px, 3vw, 24px);
 }
 
 .form-label {
-  /*width: 200px;*/
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   color: var(--title-black-color);
   font-weight: 400;
-  padding-top: 24px; /* para alinea con el input */   
+  padding-top: clamp(0px, 2vw, 24px);
   line-height: 100%;
   letter-spacing: 0;
 }
 
 .form-radio-label {
   color: var(--title-black-color);
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   font-weight: 400;
   line-height: 100%;
   letter-spacing: 0;
 }
 
 .form-input {
-  /* flex: 1; */
+  width: 100%;
+  max-width: 560px;
 }
 
 .form-field {
-  margin-bottom: 24px;
+  margin-bottom: clamp(16px, 3vw, 24px);
 }
 
 .full-width {
   width: 100%;
 }
 
-/* Button */
+/* Button Container - Grid Responsive */
 .button-container {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), auto));
+  justify-content: end;
+  margin-top: clamp(20px, 4vw, 32px);
 }
 
 .button-enviar {
   background: var(--primary-color) !important;
   color: #ffffff;
-  padding: 12px 32px;
+  padding: clamp(12px, 2vw, 12px) clamp(24px, 4vw, 32px);
   font-weight: 500;
   letter-spacing: 0.5px;
+  min-width: 150px;
 }
 
 .button-enviar:hover {
@@ -183,8 +183,6 @@ body {
   background-color: #0d47a1;
 }
 
-
-
 /* Personalizaciones de Material Design */
 .mdc-line-ripple::before,
 .mdc-line-ripple::after {
@@ -192,13 +190,14 @@ body {
 }
 
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-  width: 560px;
+  width: 100%;
+  max-width: 560px;
 }
 
 .mdc-text-field-helper-text--persistent {
   color: rgb(23, 145, 185);
   font-weight: 400;
-  font-size: 12px;
+  font-size: clamp(11px, 1.5vw, 12px);
   padding-top: 4px;
   padding-left: 16px;
   line-height: 16px;
@@ -225,7 +224,7 @@ body {
 
 .error-message {
   color: #d32f2f;
-  font-size: 12px;
+  font-size: clamp(11px, 1.5vw, 12px);
   margin-top: 4px;
   display: none;
 }
@@ -234,13 +233,13 @@ body {
   display: block;
 }
 
-
-
-/* File Upload Styles */
+/* File Upload Styles - Grid Responsive */
 .file-upload-container {
-  display: flex;
-  gap: 24px;
-  padding-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: clamp(16px, 3vw, 24px);
+  padding-top: clamp(12px, 2vw, 16px);
+  padding-left: 5px;
 }
 
 .file-upload-item {
@@ -254,7 +253,7 @@ body {
   background: none;
   border: none;
   cursor: default;
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   color: rgba(0, 0, 0, 0.6);
   font-weight: 400;
   font-family: 'Roboto', sans-serif;
@@ -274,6 +273,13 @@ body {
   line-height: 1.5;
 }
 
+/* Radio Group - Grid Responsive */
+.radio-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+  gap: clamp(16px, 3vw, 24px);
+  padding-top: clamp(12px, 2vw, 16px);
+}
 
 /* Dialog Styles */
 .mdc-dialog__surface {
