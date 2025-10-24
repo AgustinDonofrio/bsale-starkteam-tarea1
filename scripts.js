@@ -94,7 +94,7 @@ function mostrarDialog() {
   let html = '';
   
   // Mapeo de nombres para los campos
-  const nombresAmigables = {
+  const nombresMapeados = {
     'rut-empresa': 'RUT de la empresa',
     'razon-social': 'Razón social',
     'direccion-empresa': 'Dirección de la empresa',
@@ -107,7 +107,7 @@ function mostrarDialog() {
   };
   
   for (let key in formData) {
-    const nombreCampo = nombresAmigables[key] || key;
+    const nombreCampo = nombresMapeados[key] || key;
     html += `<p><strong>${nombreCampo}:</strong> ${formData[key] || '(vacío)'}</p>`;
   }
   
