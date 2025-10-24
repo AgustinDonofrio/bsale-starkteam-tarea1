@@ -96,7 +96,7 @@ function mostrarDialog() {
   // Mapeo de nombres para los campos
   const nombresAmigables = {
     'rut-empresa': 'RUT de la empresa',
-    'razonSocial': 'Razón social',
+    'razon-social': 'Razón social',
     'direccion-empresa': 'Dirección de la empresa',
     'comuna': 'Comuna',
     'actividad-economica': 'Actividad económica',
